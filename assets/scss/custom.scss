@@ -1,3 +1,27 @@
-/*
-    You can add your own custom styles here.
-*/
+.article-list {
+  .row {
+    display: flex;
+    flex-wrap: wrap; // just in case
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .col {
+      flex: 0 0 calc(33.333% - 0.67rem);
+      box-sizing: border-box;
+    }
+
+    // Tablet: 2 columns
+    @media (max-width: 900px) {
+      .col {
+        flex: 0 0 calc(50% - 0.5rem);
+      }
+    }
+
+    // Mobile: 1 column
+    @media (max-width: 600px) {
+      .col {
+        flex: 0 0 100%;
+      }
+    }
+  }
+}
