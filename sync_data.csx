@@ -24,6 +24,27 @@ var slugCount = new Dictionary<string, int>();
 var allSlugs = new HashSet<string>();
 var http = new HttpClient();
 
+string Transliterate(string input)
+{
+    var map = new Dictionary<char, string>
+    {
+        {'а', "a"}, {'б', "b"}, {'в', "v"}, {'г', "g"}, {'д', "d"},
+        {'е', "e"}, {'ж', "zh"}, {'з', "z"}, {'и', "i"}, {'й', "y"},
+        {'к', "k"}, {'л', "l"}, {'м', "m"}, {'н', "n"}, {'о', "o"},
+        {'п', "p"}, {'р', "r"}, {'с', "s"}, {'т', "t"}, {'у', "u"},
+        {'ф', "f"}, {'х', "h"}, {'ц', "ts"}, {'ч', "ch"}, {'ш', "sh"},
+        {'щ', "sht"}, {'ъ', "a"}, {'ь', ""}, {'ю', "yu"}, {'я', "ya"},
+        {'А', "A"}, {'Б', "B"}, {'В', "V"}, {'Г', "G"}, {'Д', "D"},
+        {'Е', "E"}, {'Ж', "Zh"}, {'З', "Z"}, {'И', "I"}, {'Й', "Y"},
+        {'К', "K"}, {'Л', "L"}, {'М', "M"}, {'Н', "N"}, {'О', "O"},
+        {'П', "P"}, {'Р', "R"}, {'С', "S"}, {'Т', "T"}, {'У', "U"},
+        {'Ф', "F"}, {'Х', "H"}, {'Ц', "Ts"}, {'Ч', "Ch"}, {'Ш', "Sh"},
+        {'Щ', "Sht"}, {'Ъ', "A"}, {'Ь', ""}, {'Ю', "Yu"}, {'Я', "Ya"}
+    };
+
+    return string.Concat(input.Select(c => map.ContainsKey(c) ? map[c] : c.ToString()));
+}
+
 async Task<string?> DownloadYouTubeThumbnailAsync(string ytid, string targetPath)
 {
     var urls = new[]
@@ -67,6 +88,8 @@ foreach (var file in Directory.GetFiles(sourceDir, "data_*.yml"))
         var title = item.ContainsKey("title") ? item["title"]?.ToString()?.Trim() ?? "" : "";
         if (string.IsNullOrWhiteSpace(title)) continue;
 
+        title = title.TrimEnd('.'); // ✅ Remove trailing dots
+
         var artistsList = item.ContainsKey("artists") && item["artists"] is IEnumerable<object> rawList
             ? rawList.Select(x => x?.ToString()?.Trim() ?? "").Where(x => !string.IsNullOrWhiteSpace(x)).ToList()
             : new List<string>();
@@ -77,9 +100,10 @@ foreach (var file in Directory.GetFiles(sourceDir, "data_*.yml"))
         var ytid = item.ContainsKey("ytid") ? item["ytid"]?.ToString()?.Trim() : null;
         var publishedRaw = item.ContainsKey("published_on") ? item["published_on"]?.ToString()?.Trim() : null;
 
-        // Slugify
-        var baseSlug = slugHelper.GenerateSlug($"{string.Join(" ", artistsList)} {title}");
+        var rawSlugText = $"{string.Join(" ", artistsList)} {title}";
+        var baseSlug = slugHelper.GenerateSlug(Transliterate(rawSlugText));
         var slug = baseSlug;
+
         if (slugCount.ContainsKey(baseSlug))
         {
             slugCount[baseSlug]++;
@@ -92,13 +116,13 @@ foreach (var file in Directory.GetFiles(sourceDir, "data_*.yml"))
 
         allSlugs.Add(slug);
 
-        // Hugo Date
         string hugoDate = DateTimeOffset.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
         if (!string.IsNullOrEmpty(publishedRaw))
         {
             try
             {
-                var parsed = DateTime.ParseExact(publishedRaw!, "MMMM d, yyyy", CultureInfo.InvariantCulture);
+                var dateFormats = new[] { "MMMM d, yyyy", "MMM d, yyyy" };
+                var parsed = DateTime.ParseExact(publishedRaw!, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
                 var offset = new DateTimeOffset(parsed, TimeSpan.FromHours(3));
                 hugoDate = offset.ToString("yyyy-MM-ddTHH:mm:sszzz");
             }
@@ -108,13 +132,11 @@ foreach (var file in Directory.GetFiles(sourceDir, "data_*.yml"))
             }
         }
 
-        // Output paths
         var entryDir = Path.Combine(contentDir, slug!);
         var indexPath = Path.Combine(entryDir, "index.md");
         var coverPath = Path.Combine(entryDir, "cover.jpg");
         Directory.CreateDirectory(entryDir);
 
-        // Download thumbnail
         string imageField = "";
         if (!string.IsNullOrEmpty(ytid))
         {
@@ -122,7 +144,6 @@ foreach (var file in Directory.GetFiles(sourceDir, "data_*.yml"))
             imageField = imageResult ?? "";
         }
 
-        // Generate front matter
         var mdContent = $@"---
 title: ""{fullTitle.Replace("\"", "\\\"")}""
 slug: ""{slug}""
@@ -130,7 +151,6 @@ description:
 date: {hugoDate}
 artists:
 ";
-
         foreach (var a in artistsList)
             mdContent += $"  - \"{a.Replace("\"", "\\\"")}\"\n";
 
@@ -154,7 +174,7 @@ draft: false
     }
 }
 
-// Cleanup old entries
+// Cleanup orphan folders
 if (Directory.Exists(contentDir))
 {
     var existingSlugs = Directory.GetDirectories(contentDir)
