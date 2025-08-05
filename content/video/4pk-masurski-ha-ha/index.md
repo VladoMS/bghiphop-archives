@@ -9,10 +9,12 @@ artists:
 tags:
   - "4PK"
   - "Масурски"
-image: 
+image: cover.jpg
 math: 
 license: 
 hidden: false
 comments: true
 draft: false
 ---
+
+{{< youtube hAl8s23BLMU >}}
