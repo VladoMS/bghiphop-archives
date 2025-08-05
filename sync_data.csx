@@ -85,20 +85,31 @@ foreach (var file in Directory.GetFiles(sourceDir, "data_*.yml"))
 
     foreach (var item in items)
     {
-        var title = item.ContainsKey("title") ? item["title"]?.ToString()?.Trim() ?? "" : "";
-        if (string.IsNullOrWhiteSpace(title)) continue;
+        var title = item.GetValueOrDefault("title")?.ToString()?.Trim() ?? "";
+        var rawArtists = item.GetValueOrDefault("artists");
+        var ytid = item.GetValueOrDefault("ytid")?.ToString()?.Trim();
+        var publishedRaw = item.GetValueOrDefault("published_on")?.ToString()?.Trim();
 
-        title = title.TrimEnd('.'); // ✅ Remove trailing dots
+        // ❌ Strict validation
+        if (string.IsNullOrWhiteSpace(title))
+            throw new Exception($"❌ Missing 'title' in entry: {System.Text.Json.JsonSerializer.Serialize(item)}");
 
-        var artistsList = item.ContainsKey("artists") && item["artists"] is IEnumerable<object> rawList
+        if (string.IsNullOrWhiteSpace(ytid))
+            throw new Exception($"❌ Missing 'ytid' in entry: {title}");
+
+        if (string.IsNullOrWhiteSpace(publishedRaw))
+            throw new Exception($"❌ Missing 'published_on' in entry: {title}");
+
+        var artistsList = rawArtists is IEnumerable<object> rawList
             ? rawList.Select(x => x?.ToString()?.Trim() ?? "").Where(x => !string.IsNullOrWhiteSpace(x)).ToList()
             : new List<string>();
 
+        if (!artistsList.Any())
+            throw new Exception($"❌ No artists found in entry: {title}");
+
+        title = title.TrimEnd('.');
         var artistsString = string.Join(", ", artistsList);
         var fullTitle = !string.IsNullOrWhiteSpace(artistsString) ? $"{artistsString} - {title}" : title;
-
-        var ytid = item.ContainsKey("ytid") ? item["ytid"]?.ToString()?.Trim() : null;
-        var publishedRaw = item.ContainsKey("published_on") ? item["published_on"]?.ToString()?.Trim() : null;
 
         var rawSlugText = $"{string.Join(" ", artistsList)} {title}";
         var baseSlug = slugHelper.GenerateSlug(Transliterate(rawSlugText));
@@ -117,19 +128,16 @@ foreach (var file in Directory.GetFiles(sourceDir, "data_*.yml"))
         allSlugs.Add(slug);
 
         string hugoDate = DateTimeOffset.Now.ToString("yyyy-MM-ddTHH:mm:sszzz");
-        if (!string.IsNullOrEmpty(publishedRaw))
+        try
         {
-            try
-            {
-                var dateFormats = new[] { "MMMM d, yyyy", "MMM d, yyyy" };
-                var parsed = DateTime.ParseExact(publishedRaw!, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
-                var offset = new DateTimeOffset(parsed, TimeSpan.FromHours(3));
-                hugoDate = offset.ToString("yyyy-MM-ddTHH:mm:sszzz");
-            }
-            catch
-            {
-                Console.WriteLine($"⚠️ Failed to parse date '{publishedRaw}' in entry: {title}");
-            }
+            var dateFormats = new[] { "MMMM d, yyyy", "MMM d, yyyy" };
+            var parsed = DateTime.ParseExact(publishedRaw!, dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+            var offset = new DateTimeOffset(parsed, TimeSpan.FromHours(3));
+            hugoDate = offset.ToString("yyyy-MM-ddTHH:mm:sszzz");
+        }
+        catch
+        {
+            throw new Exception($"❌ Failed to parse 'published_on' date: {publishedRaw} in entry: {title}");
         }
 
         var entryDir = Path.Combine(contentDir, slug!);
@@ -138,14 +146,11 @@ foreach (var file in Directory.GetFiles(sourceDir, "data_*.yml"))
         Directory.CreateDirectory(entryDir);
 
         string imageField = "";
-        if (!string.IsNullOrEmpty(ytid))
-        {
-            var imageResult = await DownloadYouTubeThumbnailAsync(ytid!, coverPath);
-            imageField = imageResult ?? "";
-        }
+        var imageResult = await DownloadYouTubeThumbnailAsync(ytid!, coverPath);
+        imageField = imageResult ?? "";
 
         var mdContent = $@"---
-title: ""{fullTitle.Replace("\"", "\\\"")}""
+title: ""{fullTitle.Replace("\"", "\\\"")}"" 
 slug: ""{slug}""
 description: 
 date: {hugoDate}
@@ -164,11 +169,10 @@ license:
 hidden: false
 comments: true
 draft: false
----
-";
+---";
 
         if (!string.IsNullOrEmpty(ytid))
-            mdContent += $"\n{{{{< youtube {ytid} >}}}}\n";
+            mdContent += $"\n\n{{{{< youtube {ytid} >}}}}\n";
 
         await File.WriteAllTextAsync(indexPath, mdContent);
     }
