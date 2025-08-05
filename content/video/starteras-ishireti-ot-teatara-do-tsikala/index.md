@@ -1,5 +1,5 @@
 ---
-title: "STARTERAs - Иширети От Театъра До Цикъла"
+title: "STARTERAs - Иширети От Театъра До Цикъла" 
 slug: "starteras-ishireti-ot-teatara-do-tsikala"
 description: 
 date: 2011-09-21T00:00:00+03:00

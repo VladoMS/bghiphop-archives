@@ -1,5 +1,5 @@
 ---
-title: "X-Team - Минус 2ри етаж"
+title: "X-Team - Минус 2ри етаж" 
 slug: "x-team-minus-2ri-etazh"
 description: 
 date: 2014-02-06T00:00:00+03:00

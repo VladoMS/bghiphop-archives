@@ -1,5 +1,5 @@
 ---
-title: "Явката ДЛГ - Пожарогасител"
+title: "Явката ДЛГ - Пожарогасител" 
 slug: "yavkata-dlg-pozharogasitel"
 description: 
 date: 2014-05-29T00:00:00+03:00

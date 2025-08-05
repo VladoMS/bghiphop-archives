@@ -1,5 +1,5 @@
 ---
-title: "Young BB Young, DRS - Майната им"
+title: "Young BB Young, DRS - Майната им" 
 slug: "young-bb-young-drs-maynata-im"
 description: 
 date: 2015-06-15T00:00:00+03:00

@@ -1,5 +1,5 @@
 ---
-title: "Керанов, Маната, JAY, F.O. - В Асансьора (feat Kal-El)"
+title: "Керанов, Маната, JAY, F.O. - В Асансьора (feat Kal-El)" 
 slug: "keranov-manata-jay-f.o.-v-asansora-feat-kal-el"
 description: 
 date: 2014-08-10T00:00:00+03:00

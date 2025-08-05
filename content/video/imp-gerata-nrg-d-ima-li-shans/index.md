@@ -1,5 +1,5 @@
 ---
-title: "IMP, GERATA, NRG D - Има ли шанс"
+title: "IMP, GERATA, NRG D - Има ли шанс" 
 slug: "imp-gerata-nrg-d-ima-li-shans"
 description: 
 date: 2015-05-23T00:00:00+03:00

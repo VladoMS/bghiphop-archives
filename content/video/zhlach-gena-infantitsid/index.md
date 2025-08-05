@@ -1,5 +1,5 @@
 ---
-title: "ЖЛЪЧ, ГЕНА - Инфантицид"
+title: "ЖЛЪЧ, ГЕНА - Инфантицид" 
 slug: "zhlach-gena-infantitsid"
 description: 
 date: 2014-10-23T00:00:00+03:00

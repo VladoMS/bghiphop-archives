@@ -1,5 +1,5 @@
 ---
-title: "LOGO5, DJ Darkstep - Петилетка"
+title: "LOGO5, DJ Darkstep - Петилетка" 
 slug: "logo5-dj-darkstep-petiletka"
 description: 
 date: 2011-06-29T00:00:00+03:00

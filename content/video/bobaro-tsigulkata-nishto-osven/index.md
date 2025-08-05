@@ -1,5 +1,5 @@
 ---
-title: "BOBARO, Цигулката - Нищо Освен"
+title: "BOBARO, Цигулката - Нищо Освен" 
 slug: "bobaro-tsigulkata-nishto-osven"
 description: 
 date: 2015-12-17T00:00:00+03:00

@@ -1,5 +1,5 @@
 ---
-title: "Керанов - Кратка Автобиография"
+title: "Керанов - Кратка Автобиография" 
 slug: "keranov-kratka-avtobiografiya"
 description: 
 date: 2014-09-04T00:00:00+03:00

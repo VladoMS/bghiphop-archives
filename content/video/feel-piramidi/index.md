@@ -1,5 +1,5 @@
 ---
-title: "FeeL - Пирамиди"
+title: "FeeL - Пирамиди" 
 slug: "feel-piramidi"
 description: 
 date: 2013-12-28T00:00:00+03:00

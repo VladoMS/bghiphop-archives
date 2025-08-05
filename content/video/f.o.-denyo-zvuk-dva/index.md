@@ -1,5 +1,5 @@
 ---
-title: "F.O., DenYo - Звук, Два"
+title: "F.O., DenYo - Звук, Два" 
 slug: "f.o.-denyo-zvuk-dva"
 description: 
 date: 2015-05-19T00:00:00+03:00
