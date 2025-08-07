@@ -1,7 +1,7 @@
 # Configure main menu and social menu
 [[main]]
 identifier = "videos"
-name = "Video"
+name = "Видео"
 url = "/video"
 weight = 1
 [main.params]
