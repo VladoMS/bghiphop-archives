@@ -1,13 +1,13 @@
 ---
-title: "БОБАРО, Джаджа - За Нас Си" 
+title: "BOBARO, Джаджа - За Нас Си" 
 slug: "bobaro-dzhadzha-za-nas-si"
 description: 
 date: 2012-11-16T00:00:00+03:00
 artists:
-  - "БОБАРО"
+  - "BOBARO"
   - "Джаджа"
 tags:
-  - "БОБАРО"
+  - "BOBARO"
   - "Джаджа"
 image: cover.jpg
 math: 
