@@ -24,7 +24,7 @@ src = "img/logo.png"
 [article]
 headingAnchor = false
 math = false
-readingTime = true
+readingTime = false
 
 [article.license]
 enabled = true
