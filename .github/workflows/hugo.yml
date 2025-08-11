@@ -74,7 +74,7 @@ jobs:
       - name: Run sync scripts
         shell: bash
         run: |
-          chmod +x ./sync_data && ./sync_data || true
+          chmod +x ./sync_data.csx && ./sync_data.csx || true
 
 
       - name: Build
