@@ -1,1 +1,9 @@
+[[main]]
+  name = "Архив"
+  url = "/archives/"
+  weight = 20
 
+[[main]]
+  name = "Търсене"
+  url = "/search/"
+  weight = 30
