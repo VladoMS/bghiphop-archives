@@ -41,15 +41,21 @@
 
 <!-- Navigation -->
 {{ $videos := where .Site.RegularPages "Section" "videos" }}
-{{ $currentIndex := 0 }}
+{{ $currentIndex := -1 }}
 {{ range $index, $page := $videos }}
-  {{ if eq $page .Page }}
+  {{ if eq $page.Permalink $.Permalink }}
     {{ $currentIndex = $index }}
   {{ end }}
 {{ end }}
 
-{{ $prevVideo := index $videos (add $currentIndex 1) }}
-{{ $nextVideo := index $videos (sub $currentIndex 1) }}
+{{ $prevVideo := "" }}
+{{ $nextVideo := "" }}
+{{ if gt $currentIndex 0 }}
+  {{ $prevVideo = index $videos (sub $currentIndex 1) }}
+{{ end }}
+{{ if lt $currentIndex (sub (len $videos) 1) }}
+  {{ $nextVideo = index $videos (add $currentIndex 1) }}
+{{ end }}
 
 {{ if or $prevVideo $nextVideo }}
 <nav class="video-nav">
