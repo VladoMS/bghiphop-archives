@@ -7,7 +7,7 @@
     "permalink": {{ $page.Permalink | jsonify }},
     "date": {{ $page.Date.Format "2 January 2006" | jsonify }},
     "content": {{ $page.Plain | jsonify }},
-    "tags": {{ $page.Params.tags | jsonify }},
+    "tags": {{ if $page.Params.tags }}[{{ range $i, $tag := $page.Params.tags }}{{ if $i }},{{ end }}"{{ $tag }}"{{ end }}]{{ else }}[]{{ end }},
     {{- if $page.Params.cover -}}
       {{- $cover := $page.Resources.Get $page.Params.cover -}}
       {{- if $cover -}}

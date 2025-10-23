@@ -95,9 +95,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const queryLower = query.toLowerCase();
     const results = searchIndex.filter(item => {
-      return item.title.toLowerCase().includes(queryLower) ||
-             item.tags.some(tag => tag.toLowerCase().includes(queryLower)) ||
-             item.content.toLowerCase().includes(queryLower);
+      // Safe string checking
+      const titleMatch = item.title && item.title.toLowerCase().includes(queryLower);
+      const contentMatch = item.content && item.content.toLowerCase().includes(queryLower);
+      const tagsMatch = item.tags && Array.isArray(item.tags) && 
+                        item.tags.some(tag => tag && typeof tag === 'string' && tag.toLowerCase().includes(queryLower));
+      
+      return titleMatch || contentMatch || tagsMatch;
     });
     
     displayResults(results, query);
@@ -128,9 +132,9 @@ document.addEventListener('DOMContentLoaded', function() {
           <div class="video-info">
             <h2 class="video-title">${item.title}</h2>
             <div class="video-date">${item.date}</div>
-            ${item.tags.length > 0 ? `
+            ${item.tags && Array.isArray(item.tags) && item.tags.length > 0 ? `
               <div class="video-tags">
-                ${item.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('')}
+                ${item.tags.slice(0, 3).filter(tag => tag && typeof tag === 'string').map(tag => `<span class="tag">${tag}</span>`).join('')}
               </div>
             ` : ''}
           </div>
