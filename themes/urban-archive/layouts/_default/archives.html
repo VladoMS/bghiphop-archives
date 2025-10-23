@@ -11,6 +11,10 @@
     <select id="year-select" class="year-select">
       <option value="all">Всички години</option>
     </select>
+    <label for="tag-select" class="year-label">Таг:</label>
+    <select id="tag-select" class="year-select">
+      <option value="all">Всички тагове</option>
+    </select>
     <div class="video-count">
       <span id="video-count">Зареждане...</span>
     </div>
@@ -108,12 +112,14 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const yearSelect = document.getElementById('year-select');
+  const tagSelect = document.getElementById('tag-select');
   const videosContainer = document.getElementById('videos-container');
   const videoCount = document.getElementById('video-count');
   const loading = document.getElementById('loading');
   const noVideos = document.getElementById('no-videos');
   let allVideos = [];
   let yearCounts = {};
+  let tagCounts = {};
   
   // Load videos data
   fetch('/archives/index.json')
@@ -121,8 +127,10 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
       allVideos = data;
       processVideos();
+      processTags();
       populateYears();
-      displayVideos('all');
+      populateTags();
+      displayVideos('all', 'all');
       loading.style.display = 'none';
     })
     .catch(error => {
@@ -155,19 +163,52 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Display videos for selected year
-  function displayVideos(selectedYear) {
+  // Process tags and count by tag
+  function processTags() {
+    tagCounts = {};
+    allVideos.forEach(video => {
+      if (Array.isArray(video.tags)) {
+        video.tags.forEach(tag => {
+          if (!tag) return;
+          if (!tagCounts[tag]) tagCounts[tag] = 0;
+          tagCounts[tag]++;
+        });
+      }
+    });
+  }
+  
+  // Populate tag dropdown
+  function populateTags() {
+    const tags = Object.keys(tagCounts)
+      .sort((a, b) => (tagCounts[b] - tagCounts[a]) || a.localeCompare(b, 'bg'));
+    tags.forEach(tag => {
+      const option = document.createElement('option');
+      option.value = tag;
+      option.textContent = `${tag} (${tagCounts[tag]})`;
+      tagSelect.appendChild(option);
+    });
+  }
+  
+  // Display videos for selected filters
+  function displayVideos(selectedYear, selectedTag) {
     let filteredVideos = allVideos;
     
     if (selectedYear !== 'all') {
-      filteredVideos = allVideos.filter(video => video.year.toString() === selectedYear);
+      filteredVideos = filteredVideos.filter(video => video.year.toString() === selectedYear);
+    }
+    if (selectedTag && selectedTag !== 'all') {
+      filteredVideos = filteredVideos.filter(video => Array.isArray(video.tags) && video.tags.includes(selectedTag));
     }
     
     // Update count
-    if (selectedYear === 'all') {
+    if (selectedYear === 'all' && (selectedTag === 'all' || !selectedTag)) {
       videoCount.textContent = `${allVideos.length} видеа общо`;
-    } else {
+    } else if (selectedYear !== 'all' && (selectedTag === 'all' || !selectedTag)) {
       videoCount.textContent = `${filteredVideos.length} видеа за ${selectedYear}`;
+    } else if (selectedYear === 'all' && selectedTag && selectedTag !== 'all') {
+      videoCount.textContent = `${filteredVideos.length} видеа с таг "${selectedTag}"`;
+    } else {
+      videoCount.textContent = `${filteredVideos.length} видеа за ${selectedYear} с таг "${selectedTag}"`;
     }
     
     if (filteredVideos.length === 0) {
@@ -182,21 +223,21 @@ document.addEventListener('DOMContentLoaded', function() {
     filteredVideos.sort((a, b) => new Date(b.rawDate) - new Date(a.rawDate));
     
     const html = filteredVideos.map(video => `
-      <article class="video-card">
-        <a href="${video.permalink}">
-          <div class="video-cover">
+      <article class=\"video-card\">
+        <a href=\"${video.permalink}\">
+          <div class=\"video-cover\">
             ${video.image ? 
-              `<img src="${video.image}" alt="${video.title}" loading="lazy">` : 
-              '<div class="video-cover" data-loading="true"></div>'
+              `<img src=\"${video.image}\" alt=\"${video.title}\" loading=\"lazy\">` : 
+              '<div class=\"video-cover\" data-loading=\"true\"></div>'
             }
-            <div class="play-overlay">▶</div>
+            <div class=\"play-overlay\">▶</div>
           </div>
-          <div class="video-info">
-            <h2 class="video-title">${video.title}</h2>
-            <div class="video-date">${video.date}</div>
+          <div class=\"video-info\">
+            <h2 class=\"video-title\">${video.title}</h2>
+            <div class=\"video-date\">${video.date}</div>
             ${video.tags.length > 0 ? `
-              <div class="video-tags">
-                ${video.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('')}
+              <div class=\"video-tags\">
+                ${video.tags.slice(0, 3).map(tag => `<span class=\"tag\">${tag}</span>`).join('')}
               </div>
             ` : ''}
           </div>
@@ -207,9 +248,12 @@ document.addEventListener('DOMContentLoaded', function() {
     videosContainer.innerHTML = html;
   }
   
-  // Handle year selection
+  // Handle filter changes
   yearSelect.addEventListener('change', function() {
-    displayVideos(this.value);
+    displayVideos(yearSelect.value, tagSelect.value);
+  });
+  tagSelect.addEventListener('change', function() {
+    displayVideos(yearSelect.value, tagSelect.value);
   });
 });
 </script>

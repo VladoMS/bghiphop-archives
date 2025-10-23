@@ -12,10 +12,20 @@
       Публикувано на {{ .Date.Format "2 January 2006" }}
     </div>
     
-    {{ if .Params.tags }}
+    {{ $tags := .Params.tags }}
+    {{ if $tags }}
     <div class="video-tags">
-      {{ range .Params.tags }}
-      <span class="tag">{{ . }}</span>
+      {{ $showFiltered := gt (len $tags) 6 }}
+      {{ range $tags }}
+        {{ $t := . }}
+        {{ $term := $.Site.GetPage (printf "/tags/%s" (urlize $t)) }}
+        {{ if or (not $showFiltered) (and $term (ge (len $term.Pages) 2)) }}
+          {{ if $term }}
+            <a class="tag" href="{{ $term.RelPermalink }}">{{ $t }} ({{ len $term.Pages }})</a>
+          {{ else }}
+            <span class="tag">{{ $t }}</span>
+          {{ end }}
+        {{ end }}
       {{ end }}
     </div>
     {{ end }}
