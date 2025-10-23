@@ -1,9 +1,4 @@
 {{ define "main" }}
-<div class="page-title">
-  <h1>{{ .Site.Title }}</h1>
-  <p class="text-muted">{{ .Site.Params.description | default "Българският хип-хоп архив" }}</p>
-</div>
-
 {{ $videos := where .Site.RegularPages "Section" "videos" }}
 {{ $paginator := .Paginate $videos }}
 
