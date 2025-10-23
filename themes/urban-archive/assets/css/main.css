@@ -85,18 +85,10 @@ a:hover {
   gap: 0.75rem;
 }
 
-.logo img {
-  height: 32px;
+.logo-image {
+  height: 48px;
   width: auto;
-}
-
-.logo-text {
-  font-family: 'Oswald', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--fg);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  filter: brightness(1.2) contrast(1.1);
 }
 
 .nav {
