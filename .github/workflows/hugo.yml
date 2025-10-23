@@ -1,8 +1,6 @@
 name: Deploy Hugo site to DO
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # Runs every day at 00:00 UTC
   push:
     branches: ["master"]
   workflow_dispatch:
@@ -69,23 +67,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-hugo-vp-images-
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '8.0.x'
-      
-      - name: Install dotnet-script
-        run: |
-          cd scripts
-          dotnet tool restore
-      
-      - name: Run YouTube playlist sync
-        shell: bash
-        run: |
-          echo "Starting YouTube playlist sync..."
-          cd scripts
-          dotnet script sync_videos.csx -- --apply
-          echo "YouTube sync completed successfully"
 
 
       - name: Build
