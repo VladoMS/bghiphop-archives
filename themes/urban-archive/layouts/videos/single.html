@@ -1,0 +1,73 @@
+{{ define "main" }}
+<article class="video-single">
+  {{ if .Params.youtube_id }}
+  <div class="video-embed">
+    {{ .Content }}
+  </div>
+  {{ end }}
+  
+  <div class="video-meta">
+    <h1 class="video-title">{{ .Title }}</h1>
+    <div class="video-date">
+      Публикувано на {{ .Date.Format "2 January 2006" }}
+    </div>
+    
+    {{ if .Params.tags }}
+    <div class="video-tags">
+      {{ range .Params.tags }}
+      <span class="tag">{{ . }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  
+  <!-- Share buttons -->
+  <div class="share-buttons" style="text-align: center; margin: 2rem 0;">
+    {{ $title := .Title }}
+    {{ $url := .Permalink }}
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ $url }}" target="_blank" class="nav-link" style="display: inline-flex; margin: 0 0.5rem;">
+      Facebook
+    </a>
+    <a href="https://twitter.com/intent/tweet?text={{ $title }}&url={{ $url }}" target="_blank" class="nav-link" style="display: inline-flex; margin: 0 0.5rem;">
+      Twitter
+    </a>
+    {{ if .Params.youtube_id }}
+    <a href="https://www.youtube.com/watch?v={{ .Params.youtube_id }}" target="_blank" class="nav-link" style="display: inline-flex; margin: 0 0.5rem;">
+      YouTube
+    </a>
+    {{ end }}
+  </div>
+</article>
+
+<!-- Navigation -->
+{{ $videos := where .Site.RegularPages "Section" "videos" }}
+{{ $currentIndex := 0 }}
+{{ range $index, $page := $videos }}
+  {{ if eq $page .Page }}
+    {{ $currentIndex = $index }}
+  {{ end }}
+{{ end }}
+
+{{ $prevVideo := index $videos (add $currentIndex 1) }}
+{{ $nextVideo := index $videos (sub $currentIndex 1) }}
+
+{{ if or $prevVideo $nextVideo }}
+<nav class="video-nav">
+  {{ if $prevVideo }}
+  <a href="{{ $prevVideo.RelPermalink }}" class="nav-link">
+    ← {{ $prevVideo.Title | truncate 40 }}
+  </a>
+  {{ else }}
+  <span></span>
+  {{ end }}
+  
+  {{ if $nextVideo }}
+  <a href="{{ $nextVideo.RelPermalink }}" class="nav-link">
+    {{ $nextVideo.Title | truncate 40 }} →
+  </a>
+  {{ else }}
+  <span></span>
+  {{ end }}
+</nav>
+{{ end }}
+{{ end }}
