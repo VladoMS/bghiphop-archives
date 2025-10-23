@@ -53,6 +53,10 @@ pagerSize = 24
 # Menu configuration
 [menu]
   [[menu.main]]
+    name = "Архив"
+    url = "/archives/"
+    weight = 20
+  [[menu.main]]
     name = "Търсене"
     url = "/search/"
     weight = 30

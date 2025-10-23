@@ -1,0 +1,25 @@
+{{- $videos := where .Site.RegularPages "Section" "videos" -}}
+[
+{{- range $index, $page := $videos -}}
+  {{- if $index -}},{{- end }}
+  {
+    "title": {{ $page.Title | jsonify }},
+    "permalink": {{ $page.Permalink | jsonify }},
+    "date": {{ $page.Date.Format "2 January 2006" | jsonify }},
+    "rawDate": {{ $page.Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+    "year": {{ $page.Date.Year }},
+    "content": {{ $page.Plain | jsonify }},
+    "tags": {{ if $page.Params.tags }}[{{ range $i, $tag := $page.Params.tags }}{{ if $i }},{{ end }}"{{ $tag }}"{{ end }}]{{ else }}[]{{ end }},
+    {{- if $page.Params.cover -}}
+      {{- $cover := $page.Resources.Get $page.Params.cover -}}
+      {{- if $cover -}}
+        "image": {{ $cover.Permalink | jsonify }}
+      {{- else -}}
+        "image": ""
+      {{- end -}}
+    {{- else -}}
+      "image": ""
+    {{- end }}
+  }
+{{- end -}}
+]
