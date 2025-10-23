@@ -233,26 +233,31 @@ async Task<VideoMetadata?> FetchVideoMetadataAsync(string videoId)
         // Convert to Sofia timezone
         var sofiaTime = TimeZoneInfo.ConvertTimeFromUtc(publishDate, SOFIA_TZ);
         
-        // Extract hashtags from video description
+        // Extract hashtags from video description first
         var tags = new List<string>();
         if (!string.IsNullOrEmpty(video.Description))
         {
             var hashtagPattern = @"#(\w+)";
             var matches = Regex.Matches(video.Description, hashtagPattern, RegexOptions.IgnoreCase);
             
-            tags = matches
+            tags.AddRange(matches
                 .Cast<Match>()
                 .Select(m => NormalizeTag(m.Groups[1].Value))
                 .Where(t => !string.IsNullOrEmpty(t))
-                .Distinct()
-                .Take(MAX_TAGS)
-                .ToList();
+                .Distinct());
         }
         
-        if (!tags.Any())
+        // Add YouTube keywords if available
+        if (video.Keywords?.Any() == true)
         {
-            tags = FALLBACK_TAGS.ToList();
+            tags.AddRange(video.Keywords
+                .Select(NormalizeTag)
+                .Where(t => !string.IsNullOrEmpty(t))
+                .Except(tags)); // Avoid duplicates
         }
+        
+        // Limit to max tags and remove duplicates
+        tags = tags.Distinct().Take(MAX_TAGS).ToList();
         
         return new VideoMetadata
         {
