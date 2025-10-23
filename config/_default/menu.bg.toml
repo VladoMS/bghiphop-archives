@@ -1,8 +1,1 @@
-# Configure main menu and social menu
-[[main]]
-identifier = "videos"
-name = "Видео"
-url = "/video"
-weight = 1
-[main.params]
-icon = "video"
+
