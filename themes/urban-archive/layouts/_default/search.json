@@ -1,0 +1,23 @@
+{{- $videos := where .Site.RegularPages "Section" "videos" -}}
+[
+{{- range $index, $page := $videos -}}
+  {{- if $index -}},{{- end }}
+  {
+    "title": {{ $page.Title | jsonify }},
+    "permalink": {{ $page.Permalink | jsonify }},
+    "date": {{ $page.Date.Format "2 January 2006" | jsonify }},
+    "content": {{ $page.Plain | jsonify }},
+    "tags": {{ $page.Params.tags | jsonify }},
+    {{- if $page.Params.cover -}}
+      {{- $cover := $page.Resources.Get $page.Params.cover -}}
+      {{- if $cover -}}
+        "image": {{ $cover.Permalink | jsonify }}
+      {{- else -}}
+        "image": ""
+      {{- end -}}
+    {{- else -}}
+      "image": ""
+    {{- end }}
+  }
+{{- end -}}
+]

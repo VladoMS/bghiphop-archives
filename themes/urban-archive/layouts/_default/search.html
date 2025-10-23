@@ -1,0 +1,157 @@
+{{ define "main" }}
+<div class="page-title">
+  <h1>{{ .Title }}</h1>
+  <p class="text-muted">{{ .Content }}</p>
+</div>
+
+<div class="search-container">
+  <div class="search-form">
+    <input type="text" id="search-input" placeholder="Търсете видео..." class="search-input">
+    <div id="search-stats" class="search-stats"></div>
+  </div>
+  
+  <div id="search-results" class="video-grid">
+    <!-- Search results will be populated here -->
+  </div>
+  
+  <div id="no-results" class="no-results" style="display: none;">
+    <p>Няма намерени резултати за вашето търсене.</p>
+  </div>
+</div>
+
+<style>
+.search-container {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.search-form {
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--fg);
+  outline: none;
+  transition: all 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 3px rgba(0, 194, 255, 0.1);
+}
+
+.search-stats {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem 0;
+  color: var(--muted);
+}
+
+.no-results p {
+  font-size: 1.1rem;
+}
+
+/* Search results use the same video-grid styles */
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const searchStats = document.getElementById('search-stats');
+  const noResults = document.getElementById('no-results');
+  let searchIndex = [];
+  
+  // Load search index
+  fetch('/search/index.json')
+    .then(response => response.json())
+    .then(data => {
+      searchIndex = data;
+      console.log(`Loaded ${searchIndex.length} videos for search`);
+    })
+    .catch(error => {
+      console.error('Error loading search index:', error);
+    });
+  
+  // Search function
+  function performSearch(query) {
+    if (!query.trim()) {
+      searchResults.innerHTML = '';
+      searchStats.textContent = '';
+      noResults.style.display = 'none';
+      return;
+    }
+    
+    const queryLower = query.toLowerCase();
+    const results = searchIndex.filter(item => {
+      return item.title.toLowerCase().includes(queryLower) ||
+             item.tags.some(tag => tag.toLowerCase().includes(queryLower)) ||
+             item.content.toLowerCase().includes(queryLower);
+    });
+    
+    displayResults(results, query);
+  }
+  
+  // Display search results
+  function displayResults(results, query) {
+    searchStats.textContent = `Намерени ${results.length} резултата за "${query}"`;
+    
+    if (results.length === 0) {
+      searchResults.innerHTML = '';
+      noResults.style.display = 'block';
+      return;
+    }
+    
+    noResults.style.display = 'none';
+    
+    const html = results.map(item => `
+      <article class="video-card">
+        <a href="${item.permalink}">
+          <div class="video-cover">
+            ${item.image ? 
+              `<img src="${item.image}" alt="${item.title}" loading="lazy">` : 
+              '<div class="video-cover" data-loading="true"></div>'
+            }
+            <div class="play-overlay">▶</div>
+          </div>
+          <div class="video-info">
+            <h2 class="video-title">${item.title}</h2>
+            <div class="video-date">${item.date}</div>
+            ${item.tags.length > 0 ? `
+              <div class="video-tags">
+                ${item.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('')}
+              </div>
+            ` : ''}
+          </div>
+        </a>
+      </article>
+    `).join('');
+    
+    searchResults.innerHTML = html;
+  }
+  
+  // Search on input
+  let searchTimeout;
+  searchInput.addEventListener('input', function() {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+      performSearch(this.value);
+    }, 300);
+  });
+  
+  // Focus search input
+  searchInput.focus();
+});
+</script>
+{{ end }}

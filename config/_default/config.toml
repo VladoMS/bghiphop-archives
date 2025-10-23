@@ -37,7 +37,18 @@ pagerSize = 24
 [outputs]
   home = ["HTML", "RSS"]
   section = ["HTML", "RSS"]
-  page = ["HTML"]
+  page = ["HTML", "JSON"]
+
+# Media types
+[mediaTypes]
+  [mediaTypes."application/json"]
+    suffixes = ["json"]
+
+# Output formats
+[outputFormats]
+  [outputFormats.JSON]
+    mediaType = "application/json"
+    baseName = "index"
 
 # Menu configuration
 [menu]
