@@ -5,16 +5,8 @@ slug: silent-city-ft-4pk-sound-vandalism-prod-by-nowallz
 youtube_id: XTPQQKf3CFE
 cover: cover.jpg
 tags:
-- silent-city
-- xprsn
-- soundvandalism
-- sound
-- vandalism
-- lac
-- nowallz
-- rimo
-- masurski
-- yambol
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

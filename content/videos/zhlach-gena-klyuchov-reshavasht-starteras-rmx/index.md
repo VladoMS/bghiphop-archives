@@ -5,16 +5,8 @@ slug: zhlach-gena-klyuchov-reshavasht-starteras-rmx
 youtube_id: _1WeRybrtD0
 cover: cover.jpg
 tags:
-- starteras
-- x-team
-- жлъч
-- жлъч-гена
-- so-called-crew
-- scc
-- trasher
-- trasher-art
-- бате-доуен
-- брят-че
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

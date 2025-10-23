@@ -5,15 +5,8 @@ slug: sistah-my-rap-official-video-2014
 youtube_id: b7Za8P9YXaA
 cover: cover.jpg
 tags:
-- sistah
-- sistah187
-- 187
-- hill-homiez
-- born-killa
-- pez
-- bg
-- bg-rap
-- bg-hip-hop
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

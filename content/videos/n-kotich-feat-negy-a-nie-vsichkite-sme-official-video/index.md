@@ -5,16 +5,8 @@ slug: n-kotich-feat-negy-a-nie-vsichkite-sme-official-video
 youtube_id: JmUlbAfHc4k
 cover: cover.jpg
 tags:
-- illmate
-- n
-- kotich
-- negy
-- а
-- ние
-- всичките
-- сме
-- official
-- video
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

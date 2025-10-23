@@ -5,16 +5,8 @@ slug: logo5-dj-darkstep-petiletka-petiletka
 youtube_id: B_I6h2CSoeA
 cover: cover.jpg
 tags:
-- logo5
-- darkstep
-- wosh
-- fars
-- ruth
-- illmate
-- petiletka
-- лого5
-- петилетка
-- рап
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

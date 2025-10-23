@@ -5,8 +5,8 @@ slug: chb-chukito-boreau-and-nai-den-iznasilen
 youtube_id: yWV3YxQ_Xn8
 cover: cover.jpg
 tags:
-- боро
-- чукито
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

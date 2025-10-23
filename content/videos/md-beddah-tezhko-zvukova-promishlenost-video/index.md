@@ -5,16 +5,8 @@ slug: md-beddah-tezhko-zvukova-promishlenost-video
 youtube_id: lhyk0RFYRJI
 cover: cover.jpg
 tags:
-- md-beddah
-- beddah
-- bashmotion
-- xprsn
-- bulgaria
-- video
-- hip-hop
-- rap
-- hardcore
-- revolution
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

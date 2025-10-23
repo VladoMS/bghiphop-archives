@@ -5,16 +5,8 @@ slug: tr1ckmusic-koy-te-izlaga-ft-hgf-fo-42-thugga-dim4ou-ats-madmatic-fox-joker
 youtube_id: SLAmcr6eVdY
 cover: cover.jpg
 tags:
-- tr1ckmusic
-- hoodini
-- kriminal
-- tr1cktape
-- tr1cktape2
-- hgf
-- varna
-- burgas
-- shumen
-- 42
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

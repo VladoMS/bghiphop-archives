@@ -5,16 +5,8 @@ slug: keranov-manata-jay-f-o-v-asansora-feat-kal-el-official-video
 youtube_id: I1id0rs4dAg
 cover: cover.jpg
 tags:
-- dim4ou
-- lili
-- ivanova
-- fo
-- varna
-- burgas
-- magic
-- studio
-- rap
-- dre
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

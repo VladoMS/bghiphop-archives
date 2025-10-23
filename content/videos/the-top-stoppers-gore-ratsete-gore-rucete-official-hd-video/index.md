@@ -5,16 +5,8 @@ slug: the-top-stoppers-gore-ratsete-gore-rucete-official-hd-video
 youtube_id: V3zu1sBoAIE
 cover: cover.jpg
 tags:
-- the
-- top
-- stoppers
-- wosh
-- mc
-- yoko
-- feel
-- piro
-- stick
-- insect
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

@@ -5,16 +5,8 @@ slug: billy-hlapeto-lexus-feat-dim4ou-bashmaistorska-official-video
 youtube_id: fwSul9XsPNc
 cover: cover.jpg
 tags:
-- варна
-- дим4оу
-- дим4о
-- били-хлапето
-- софия
-- плевен
-- майстори
-- башмайстори
-- лексъс
-- lexus
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

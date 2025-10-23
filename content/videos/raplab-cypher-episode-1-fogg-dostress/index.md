@@ -5,16 +5,8 @@ slug: raplab-cypher-episode-1-fogg-dostress
 youtube_id: xDieoF73z9o
 cover: cover.jpg
 tags:
-- raplab
-- umaiduma
-- uma-i-duma
-- ума-и-дума
-- умаидума
-- faq-in-music
-- faqinmusic
-- fengi
-- madbasta
-- vantka
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

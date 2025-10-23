@@ -5,16 +5,8 @@ slug: starteras-ad-spam-shum
 youtube_id: 9FCqTrr01Zk
 cover: cover.jpg
 tags:
-- starteras
-- starterass
-- x-team
-- illmate
-- darkstep
-- dj-darkstep
-- wosh-mc
-- wosh
-- logo5
-- fars
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

@@ -5,16 +5,8 @@ slug: billy-hlapeto-x-lexus-x-dim4ou-bashmaystorska-2024-prod-evg-official-4k-vi
 youtube_id: _BEa3Uysrjg
 cover: cover.jpg
 tags:
-- billy-hlapeto
-- били-хлапето
-- afrobeat
-- dancehall
-- reggeaton
-- balkan
-- balkanstyle
-- fuckhaters
-- bashmaystorska
-- that-belly
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

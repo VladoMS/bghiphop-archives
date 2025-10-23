@@ -5,16 +5,8 @@ slug: f-o-yavkata-dlg-djaany-chudo-official-video
 youtube_id: BG2BiqrvCmc
 cover: cover.jpg
 tags:
-- fo
-- peeva
-- bg-pesni
-- zanimation
-- bulgarian-songs
-- bulgarian-rap
-- българия
-- няма-чакай
-- hip-hop
-- moje-bi
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

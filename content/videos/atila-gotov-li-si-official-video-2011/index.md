@@ -5,15 +5,8 @@ slug: atila-gotov-li-si-official-video-2011
 youtube_id: H-lqqfTvl28
 cover: cover.jpg
 tags:
-- rap
-- hiphop
-- bg-rap
-- video-clip
-- minimal
-- monstribe
-- bboy
-- mc
-- graffiti
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

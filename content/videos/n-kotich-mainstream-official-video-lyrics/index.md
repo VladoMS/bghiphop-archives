@@ -5,16 +5,8 @@ slug: n-kotich-mainstream-official-video-lyrics
 youtube_id: jruUwxPeE1M
 cover: cover.jpg
 tags:
-- nkotich
-- kotich
-- котич
-- shadow-lab
-- shadowlab
-- nikolay
-- nikolai
-- nicolay
-- georgiev
-- николай
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

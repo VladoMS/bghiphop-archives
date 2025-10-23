@@ -5,16 +5,8 @@ slug: one-shot-feel-ne-te-li-e-sram-official-episode-005
 youtube_id: vyQ6WD5gR9s
 cover: cover.jpg
 tags:
-- премиера-във-facing-the-sun
-- one-shot
-- oneshot
-- feel
-- ne-te-li-e-sram
-- feel-one-shot
-- feel-oneshot
-- фиил
-- фийл
-- фийл-не-те-ли-е-срам
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

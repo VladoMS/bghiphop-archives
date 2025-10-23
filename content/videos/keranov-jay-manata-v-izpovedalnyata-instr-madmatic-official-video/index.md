@@ -5,16 +5,8 @@ slug: keranov-jay-manata-v-izpovedalnyata-instr-madmatic-official-video
 youtube_id: LxL7VlCZXDQ
 cover: cover.jpg
 tags:
-- md
-- manassey
-- manata
-- keranov
-- jay
-- madmatik
-- devil-vision
-- маната
-- керанов
-- изповедалнята
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

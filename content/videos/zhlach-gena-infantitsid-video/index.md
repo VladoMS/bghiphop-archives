@@ -5,16 +5,8 @@ slug: zhlach-gena-infantitsid-video
 youtube_id: p9EBhbhiE78
 cover: cover.jpg
 tags:
-- жлъч
-- жлъч-гена
-- инфантицид
-- socalledcrew
-- scc
-- so-called-crew
-- evgeny-scc
-- jluch
-- бате-доуен
-- indianus
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

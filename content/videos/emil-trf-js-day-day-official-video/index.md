@@ -5,16 +5,10 @@ slug: emil-trf-js-day-day-official-video
 youtube_id: GlWKy8AHhM4
 cover: cover.jpg
 tags:
-- emil-trf
 - emiltrf
-- emil
-- trf
-- virgo
-- vrgo
-- емил-трф
-- емилтрф
-- емил
-- трф
+- js
+- day
+- дай
 draft: false
 ---
 

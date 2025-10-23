@@ -5,16 +5,8 @@ slug: dafai-emc-lichna-karta-official-video
 youtube_id: HMCMlipzBc8
 cover: cover.jpg
 tags:
-- hip-hop
-- funk
-- rap
-- dafai
-- emc
-- otkude
-- nakude
-- lichna
-- karta
-- official
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

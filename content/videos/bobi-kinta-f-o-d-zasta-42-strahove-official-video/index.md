@@ -5,16 +5,8 @@ slug: bobi-kinta-f-o-d-zasta-42-strahove-official-video
 youtube_id: QLT2xmSb-u0
 cover: cover.jpg
 tags:
-- mfzanimation
-- zanimation
-- mfstudio
-- mfpublishing
-- bobi
-- kinta
-- fo
-- dzasta
-- 42
-- strahove
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

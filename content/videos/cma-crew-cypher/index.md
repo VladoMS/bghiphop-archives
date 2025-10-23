@@ -5,15 +5,8 @@ slug: cma-crew-cypher
 youtube_id: LO_SVySHVzI
 cover: cover.jpg
 tags:
-- cma
-- created-by-a-mental-act
-- bg-hip-hop
-- bg-rap
-- cma-crew-cypher
-- cypher
-- cma-crew
-- one-take-cypher
-- cypher-rec
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

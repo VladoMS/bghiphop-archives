@@ -5,16 +5,8 @@ slug: one-shot-keranov-kratka-avtobiografiya-official-episode-008
 youtube_id: U-uMfPrP-2g
 cover: cover.jpg
 tags:
-- премиера-във-facing-the-sun
-- keranov
-- one-shot
-- epiosde-008
-- kratka-avtobiografia
-- keranov-one-shot
-- vladislav-keranov
-- керанов
-- владислав-керанов
-- керанов-one-shot
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

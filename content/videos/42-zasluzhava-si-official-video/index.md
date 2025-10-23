@@ -5,16 +5,8 @@ slug: 42-zasluzhava-si-official-video
 youtube_id: HjQkvpuaSzQ
 cover: cover.jpg
 tags:
-- 42
-- zaslujava-si
-- shumen
-- rap
-- hip-hop
-- 2023
-- 2024
-- zaslujava
-- joker-flow
-- заслужава-си
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

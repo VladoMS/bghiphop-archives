@@ -5,16 +5,8 @@ slug: so-called-crew-tova-e-official-video
 youtube_id: YfWnAfCsqiw
 cover: cover.jpg
 tags:
-- socalledcrew
-- dafai
-- jluch
-- indianus
-- trasher
-- emc
-- bghiphop
-- scc
-- bulgaria
-- sofia
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

@@ -5,16 +5,8 @@ slug: f-o-cherpaka-official-video
 youtube_id: sxXhDMEIqY4
 cover: cover.jpg
 tags:
-- dim4ou
-- lili
-- ivanova
-- fo
-- varna
-- burgas
-- magic
-- studio
-- rap
-- dre
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

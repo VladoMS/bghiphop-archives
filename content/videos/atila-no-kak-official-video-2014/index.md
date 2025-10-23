@@ -5,16 +5,8 @@ slug: atila-no-kak-official-video-2014
 youtube_id: JiR5H4N8sIk
 cover: cover.jpg
 tags:
-- atila
-- mc-atila
-- no-kak
-- podleza
-- shano-crew
-- bg-rap
-- akasha
-- rimak
-- sbm
-- атила
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

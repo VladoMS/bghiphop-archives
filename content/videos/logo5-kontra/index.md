@@ -5,16 +5,8 @@ slug: logo5-kontra
 youtube_id: bWFV0ClnyK8
 cover: cover.jpg
 tags:
-- logo5
-- illmate
-- darkstep
-- wosh
-- wosh-mc
-- dj-darkstep
-- top-stoppers
-- basscatz
-- algoriddim
-- platform
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

@@ -5,16 +5,8 @@ slug: hoodini-f-o-dim4ou-bingo-official-hd-video
 youtube_id: sPnqCp2TcbE
 cover: cover.jpg
 tags:
-- hoodini
-- fo
-- dom4ou
-- bingo
-- rap
-- hip
-- hop
-- hoodgfam
-- hgf
-- 056
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

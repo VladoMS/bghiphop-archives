@@ -5,16 +5,8 @@ slug: wosh-mc-skii
 youtube_id: x0rcw7qHppY
 cover: cover.jpg
 tags:
-- rap
-- hip-hop
-- wosh-mc
-- skii
-- sofia-citytownvillage
-- weed-research-topic
-- teen
-- street
-- naomi-campbell-author
-- fiki-storaro
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

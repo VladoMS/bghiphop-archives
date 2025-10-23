@@ -5,16 +5,8 @@ slug: f-o-x-chukito-boreau-slushay-rap-spasi-salfetka-official-video
 youtube_id: BsjUbynJoEM
 cover: cover.jpg
 tags:
-- boro
-- 4uki
-- chuki
-- 4ukito
-- chukito
-- varna
-- salfetki
-- chalga
-- lek
-- maddog
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

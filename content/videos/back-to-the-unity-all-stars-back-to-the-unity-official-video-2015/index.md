@@ -5,16 +5,8 @@ slug: back-to-the-unity-all-stars-back-to-the-unity-official-video-2015
 youtube_id: r5IcbM7bBzg
 cover: cover.jpg
 tags:
-- back
-- to
-- the
-- unity
-- drs
-- dop
-- reach
-- squad
-- nokaut
-- sistah
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

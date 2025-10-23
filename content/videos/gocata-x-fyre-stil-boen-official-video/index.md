@@ -6,15 +6,8 @@ youtube_id: qBtJz6ML6qs
 cover: cover.jpg
 tags:
 - gocata
+- stilboen
 - fyre
-- gocata-kangal
-- fire
-- gocata-fyre
-- stil-boen
-- still-boen
-- boen-stil
-- гоцата
-- гоцата-кангал
 draft: false
 ---
 

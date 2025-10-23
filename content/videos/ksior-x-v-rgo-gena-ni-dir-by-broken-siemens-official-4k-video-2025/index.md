@@ -5,16 +5,10 @@ slug: ksior-x-v-rgo-gena-ni-dir-by-broken-siemens-official-4k-video-2025
 youtube_id: RjKdK_kpcGA
 cover: cover.jpg
 tags:
-- kickdown
-- bobkata
-- bobo-armani
-- pameca
-- бобо-армани
-- памеца
-- marso
-- murda
-- murda-boyz
-- murda-boys
+- ksior
+- virgo
+- genani
+- генани
 draft: false
 ---
 

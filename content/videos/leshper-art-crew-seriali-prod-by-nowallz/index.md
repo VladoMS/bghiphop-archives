@@ -5,16 +5,8 @@ slug: leshper-art-crew-seriali-prod-by-nowallz
 youtube_id: nOtM6u9BE38
 cover: cover.jpg
 tags:
-- leshper-art-crew
-- lac
-- leshper
-- art
-- crew
-- xprsn
-- seriali
-- сериали
-- kontrasti
-- контрасти
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

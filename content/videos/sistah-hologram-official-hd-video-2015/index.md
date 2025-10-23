@@ -5,16 +5,8 @@ slug: sistah-hologram-official-hd-video-2015
 youtube_id: dUonPGz1VnQ
 cover: cover.jpg
 tags:
-- sistah
-- sistah187
-- 187
-- hill-homiez
-- hologram
-- 2015
-- bg
-- bg-rap
-- hip-hop
-- bg-hip-hop
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

@@ -5,16 +5,8 @@ slug: one-shot-yavkata-dlg-pozharogasitel-official-episode-002
 youtube_id: YRfT0y0Zn9Q
 cover: cover.jpg
 tags:
-- премиера-във-facing-the-sun
-- явката-длг
-- qvkata-dlg
-- pojarogasitel
-- пожарогасител
-- явката-one-shot
-- qvkata-one-shot
-- qvkata-dlg-one-shot
-- one-shot
-- hip-hop
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

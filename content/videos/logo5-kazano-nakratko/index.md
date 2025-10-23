@@ -5,16 +5,8 @@ slug: logo5-kazano-nakratko
 youtube_id: eB6SUuBFWeo
 cover: cover.jpg
 tags:
-- logo5
-- лого5
-- grigovor
-- illea
-- григовор
-- mr-freesk
-- freesk
-- illmate
-- dj-darkstep
-- grime
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

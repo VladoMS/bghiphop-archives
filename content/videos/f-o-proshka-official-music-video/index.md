@@ -5,16 +5,8 @@ slug: f-o-proshka-official-music-video
 youtube_id: cB1G3JgXS9I
 cover: cover.jpg
 tags:
-- fo
-- peeva
-- fo-peeva
-- bg-pesni
-- zanimation
-- bulgarian-songs
-- bulgarian-rap
-- българия
-- няма-чакай
-- hip-hop
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

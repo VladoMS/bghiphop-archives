@@ -5,16 +5,8 @@ slug: mfzanimation-family-friends-official-video
 youtube_id: Lz5zYIO0khs
 cover: cover.jpg
 tags:
-- dim4ou
-- lili
-- ivanova
-- fo
-- varna
-- burgas
-- magic
-- studio
-- rap
-- dre
+- bulgarian hip hop
+- archive
 draft: false
 ---
 

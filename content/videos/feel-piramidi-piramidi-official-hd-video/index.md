@@ -5,16 +5,8 @@ slug: feel-piramidi-piramidi-official-hd-video
 youtube_id: Pn-4i2Uwn98
 cover: cover.jpg
 tags:
-- feel
-- piramidi
-- the
-- top
-- stoppers
-- wosh
-- mc
-- yoko
-- ruth
-- negy
+- bulgarian hip hop
+- archive
 draft: false
 ---
 
