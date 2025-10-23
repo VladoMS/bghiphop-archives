@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 0 * * *'  # Runs every day at 00:00 UTC
   push:
-    branches: ["redesign", "main", "master"]
+    branches: ["master"]
   workflow_dispatch:
 
 permissions:
