@@ -5,8 +5,16 @@ slug: starteras-ishireti-ot-teatara-do-tsikala-2011
 youtube_id: AOcfbZYy9Pg
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- starteras
+- logo5
+- wosh
+- darkstep
+- fars
+- top
+- stoppers
+- bass
+- drum
+- starterass
 draft: false
 ---
 

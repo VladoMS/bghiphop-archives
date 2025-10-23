@@ -9,6 +9,12 @@ tags:
 - virgo
 - genani
 - генани
+- kickdown
+- bobkata
+- bobo-armani
+- pameca
+- бобо-армани
+- памеца
 draft: false
 ---
 

@@ -5,8 +5,16 @@ slug: f-o-prechim-official-video-4k
 youtube_id: yIyqdgQILvQ
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- fo
+- varna
+- burgas
+- studio
+- rap
+- big
+- zanimation
+- bulgaria
+- street
+- brutal
 draft: false
 ---
 

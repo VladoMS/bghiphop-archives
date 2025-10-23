@@ -5,8 +5,16 @@ slug: bobaro-dzhadzha-za-nas-si-official-video
 youtube_id: k6ghCSTd7qA
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- за
+- нас
+- си
+- bobaro
+- djadja
+- second
+- hand
+- krue
+- pumu
+- ot
 draft: false
 ---
 

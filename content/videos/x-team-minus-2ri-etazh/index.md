@@ -5,8 +5,13 @@ slug: x-team-minus-2ri-etazh
 youtube_id: Cf9ASsMchfA
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- хип-хоп
+- рап
+- hip-hop-music-musical-genre
+- x-team
+- минус-2ри-етаж
+- minus-vtori-etazh
+- riva-sound
 draft: false
 ---
 

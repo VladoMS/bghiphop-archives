@@ -5,8 +5,16 @@ slug: feel-ka-i-chestno-kai-chestno
 youtube_id: 3VGt_rx7GlY
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- kai
+- chestno
+- feel
+- algoriddim
+- rocknrolla
+- bg
+- hip
+- hop
+- rap
+- 2014
 draft: false
 ---
 

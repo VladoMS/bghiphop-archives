@@ -5,8 +5,16 @@ slug: kaisieva-gradina-revolyutsiya-po-dzhapanki-instr-qvkata-dlg
 youtube_id: 5r0qRzzXiCE
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- явката
+- длг
+- кайсиева
+- градина
+- рап
+- варна
+- studio21
+- студио-21
+- божидар
+- димитров
 draft: false
 ---
 

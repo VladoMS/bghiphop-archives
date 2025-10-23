@@ -5,8 +5,16 @@ slug: tuturutka-na-posta-na-posta-official
 youtube_id: eBySOTF6CjI
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- tuturutka
+- tytyrytka
+- sketch
+- laugh
+- humour
+- funny
+- show
+- comedian
+- official
+- satire
 draft: false
 ---
 

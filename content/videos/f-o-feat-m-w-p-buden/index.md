@@ -5,8 +5,16 @@ slug: f-o-feat-m-w-p-buden
 youtube_id: rWjPWK4wnt8
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- fo
+- mwp
+- buden
+- video
+- 2012
+- 056
+- produced
+- by
+- new
+- 056-bulgarian
 draft: false
 ---
 

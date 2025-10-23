@@ -5,8 +5,14 @@ slug: bobaro-nishto-osven-feat-tsigulkata
 youtube_id: 5-TCM62N1zg
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- bobaro
+- cigulkata
+- nishto-osven
+- бобаро
+- цигулката
+- нищо-освен
+- рап
+- хип-хоп
 draft: false
 ---
 

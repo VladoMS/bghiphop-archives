@@ -5,8 +5,16 @@ slug: one-shot-f-o-head-shot-official-episode-006
 youtube_id: JCd_JHSR64Y
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- премиера-във-facing-the-sun
+- one-shot-fo
+- one-shot
+- фо
+- head-shot
+- headshot
+- fo-headshot
+- фо-хедшот
+- е006
+- one-shot-e006
 draft: false
 ---
 

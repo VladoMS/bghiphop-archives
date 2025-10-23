@@ -5,8 +5,16 @@ slug: raplab-cypher-episode-2-jahmmi-youth-chibook
 youtube_id: BrVMAoyv24M
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- raplab
+- umaiduma
+- uma-i-duma
+- ума-и-дума
+- умаидума
+- faq-in-music
+- faqinmusic
+- fengi
+- madbasta
+- vantka
 draft: false
 ---
 

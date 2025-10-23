@@ -5,8 +5,16 @@ slug: golyam-yus-trima-nahalnitsi-tom-iii-official-video
 youtube_id: bVZcd7W_oQs
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- yus
+- golqm-yus
+- golqm-ius
+- голям-юс
+- мадматик
+- боро
+- боро-първи
+- явката
+- явката-длг
+- мадматиц
 draft: false
 ---
 

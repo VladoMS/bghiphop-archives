@@ -7,6 +7,14 @@ cover: cover.jpg
 tags:
 - ini
 - spektakala
+- bsks
+- burgas
+- b-u-r-g-a-s
+- ини
+- бскс
+- бургас
+- б-у-р-г-а-с
+- bg-rap
 draft: false
 ---
 

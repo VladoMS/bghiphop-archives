@@ -8,6 +8,13 @@ tags:
 - gocata
 - stilboen
 - fyre
+- gocata-kangal
+- fire
+- gocata-fyre
+- stil-boen
+- still-boen
+- boen-stil
+- гоцата
 draft: false
 ---
 

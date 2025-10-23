@@ -5,8 +5,16 @@ slug: raplab-cypher-episode-4-so-called-crew
 youtube_id: lwS1cUZqm_c
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- uma-i-duma
+- ума-и-дума
+- umaiduma
+- умаидума
+- faqinmusic
+- faq-in-music
+- fengi
+- madbasta
+- kolec
+- koleca
 draft: false
 ---
 

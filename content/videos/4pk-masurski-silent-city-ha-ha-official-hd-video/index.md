@@ -5,8 +5,16 @@ slug: 4pk-masurski-silent-city-ha-ha-official-hd-video
 youtube_id: hAl8s23BLMU
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- silent-city
+- 4pk
+- masurski
+- soundavnadalism
+- rap
+- hip-hop
+- xprsn
+- xa-xa
+- ha-ha
+- qvkata-dlg
 draft: false
 ---
 

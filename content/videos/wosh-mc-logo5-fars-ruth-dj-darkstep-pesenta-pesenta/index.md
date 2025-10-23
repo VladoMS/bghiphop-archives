@@ -5,8 +5,16 @@ slug: wosh-mc-logo5-fars-ruth-dj-darkstep-pesenta-pesenta
 youtube_id: V5q6naU60l8
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- wosh
+- logo5
+- fars
+- ruth
+- dj
+- darkstep
+- illmate
+- pesenta
+- песента
+- rap
 draft: false
 ---
 

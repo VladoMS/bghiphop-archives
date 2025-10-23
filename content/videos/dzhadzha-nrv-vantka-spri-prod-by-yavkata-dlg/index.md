@@ -5,8 +5,16 @@ slug: dzhadzha-nrv-vantka-spri-prod-by-yavkata-dlg
 youtube_id: OMq_Rgi0r8k
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- videoclip
+- hip-hop
+- rap
+- bulgaria
+- lac
+- bash
+- motion
+- bashmotion
+- jaja
+- rimi-ot-ra
 draft: false
 ---
 

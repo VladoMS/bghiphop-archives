@@ -5,8 +5,16 @@ slug: wosh-pingi-so-fresh
 youtube_id: XD_5HDVS_CY
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- wosh
+- mc
+- pingi
+- уошия
+- стил
+- фреш
+- fresh
+- so-fresh
+- wosh-mc
+- всичко-е-наред
 draft: false
 ---
 

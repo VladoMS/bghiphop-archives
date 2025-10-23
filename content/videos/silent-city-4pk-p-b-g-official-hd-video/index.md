@@ -5,8 +5,16 @@ slug: silent-city-4pk-p-b-g-official-hd-video
 youtube_id: AOZbTGPkPFU
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- silent-city
+- 4pk
+- masurski
+- pbg
+- xprsn
+- soundvandalism
+- hip-hop
+- rap
+- new
+- yambol
 draft: false
 ---
 

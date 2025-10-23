@@ -5,8 +5,16 @@ slug: homelesz-bobkata-kapitane-prod-by-drenski-x-rusty-official-hd-video
 youtube_id: 3DA5LH145b4
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- homelesz
+- bobkata
+- kapitane
+- prod-by-drenski
+- bezdomniq
+- tomata
+- хоумелесз
+- бобката
+- капитане
+- бездомния
 draft: false
 ---
 

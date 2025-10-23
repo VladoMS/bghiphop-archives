@@ -5,8 +5,16 @@ slug: raplab-cypher-episode-3-thefunkyds-secta-mish-mash
 youtube_id: 5N23INddfKU
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- secta
+- mish-mash
+- uma-i-duma
+- uma
+- duma
+- raplab
+- cypher
+- freestyle
+- rap
+- hiphop
 draft: false
 ---
 

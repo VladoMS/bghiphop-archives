@@ -5,8 +5,16 @@ slug: fengi-madbasta-oshte-utre-ft-roelant-hollander-dj-jijo-official-video
 youtube_id: HxlHSzRti2I
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- music-video-product-line
+- music
+- hip-hop
+- hip
+- hop
+- rap
+- official
+- underground
+- bg
+- bg-rap
 draft: false
 ---
 

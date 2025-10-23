@@ -5,8 +5,16 @@ slug: young-bb-young-drs-maynata-im-official-hd-video
 youtube_id: v859zhkA-is
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- дрс
+- drs
+- young-bb-young
+- ybby
+- young-bb-young-drs
+- majnata-im
+- ybby-majnata-im
+- drs-majnata-im
+- ybby-drs-majnata-im
+- майната-им
 draft: false
 ---
 

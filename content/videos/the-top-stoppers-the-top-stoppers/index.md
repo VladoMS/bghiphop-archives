@@ -5,8 +5,16 @@ slug: the-top-stoppers-the-top-stoppers
 youtube_id: b5y7bBkf5gw
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- the-top-stoppers
+- yoko
+- wosh-mc
+- piro
+- feel
+- bulgarian-music
+- bulgaria
+- illmate
+- dj-dark-step
+- supers4upen
 draft: false
 ---
 

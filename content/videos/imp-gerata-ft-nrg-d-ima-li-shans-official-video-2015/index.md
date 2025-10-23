@@ -5,8 +5,16 @@ slug: imp-gerata-ft-nrg-d-ima-li-shans-official-video-2015
 youtube_id: iRYjj2HgxC4
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- imp
+- gerata
+- bambuka
+- alexmall
+- gem
+- out-in-space-studio
+- goloka
+- rap
+- 2015
+- hip-hop
 draft: false
 ---
 

@@ -5,8 +5,16 @@ slug: footprintz-starteras-zhlach-gena-kuts-i-klets-v-chista-forma
 youtube_id: EQu53vTKSeI
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- footprintz
+- starteras
+- socalledcrew
+- жлъч
+- гена
+- куц
+- клец
+- вчистаформа
+- hiphop
+- bboy
 draft: false
 ---
 

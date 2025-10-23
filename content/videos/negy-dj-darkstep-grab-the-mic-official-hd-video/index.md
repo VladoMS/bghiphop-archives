@@ -5,8 +5,16 @@ slug: negy-dj-darkstep-grab-the-mic-official-hd-video
 youtube_id: 9qQD0bBVxZU
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- negy
+- fars
+- illmate
+- darkstep
+- dj-darkstep
+- wosh
+- wosh-mc
+- top-stoppers
+- the-top-stoppers
+- logo5
 draft: false
 ---
 

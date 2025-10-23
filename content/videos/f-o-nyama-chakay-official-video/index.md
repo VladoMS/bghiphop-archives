@@ -5,8 +5,16 @@ slug: f-o-nyama-chakay-official-video
 youtube_id: vr7Xy8POfEM
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- dim4ou
+- lili
+- ivanova
+- fo
+- varna
+- burgas
+- magic
+- studio
+- rap
+- dre
 draft: false
 ---
 

@@ -9,6 +9,12 @@ tags:
 - js
 - day
 - дай
+- emil-trf
+- emil
+- trf
+- virgo
+- vrgo
+- емил-трф
 draft: false
 ---
 

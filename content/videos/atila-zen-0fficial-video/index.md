@@ -5,8 +5,16 @@ slug: atila-zen-0fficial-video
 youtube_id: sRsZDMkQX-I
 cover: cover.jpg
 tags:
-- bulgarian hip hop
-- archive
+- atila
+- mc-atila
+- zen
+- hip-hop
+- shanocrew
+- rap
+- bg-rap
+- mcing
+- meditation
+- rimak-sbm-shano
 draft: false
 ---
 
