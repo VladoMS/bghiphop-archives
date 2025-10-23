@@ -14,9 +14,6 @@
         <a href="{{ "/" | relURL }}" class="{{ if .IsHome }}active{{ end }}">
           Начало
         </a>
-        <a href="{{ "/videos/" | relURL }}" class="{{ if eq .Section "videos" }}active{{ end }}">
-          Видео
-        </a>
         {{ range .Site.Menus.main }}
         <a href="{{ .URL | relURL }}" class="{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}active{{ end }}">
           {{ .Name }}
