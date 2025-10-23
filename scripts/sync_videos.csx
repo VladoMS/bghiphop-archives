@@ -233,12 +233,16 @@ async Task<VideoMetadata?> FetchVideoMetadataAsync(string videoId)
         // Convert to Sofia timezone
         var sofiaTime = TimeZoneInfo.ConvertTimeFromUtc(publishDate, SOFIA_TZ);
         
-        // Extract and normalize tags
+        // Extract hashtags from video description
         var tags = new List<string>();
-        if (video.Keywords?.Any() == true)
+        if (!string.IsNullOrEmpty(video.Description))
         {
-            tags = video.Keywords
-                .Select(NormalizeTag)
+            var hashtagPattern = @"#(\w+)";
+            var matches = Regex.Matches(video.Description, hashtagPattern, RegexOptions.IgnoreCase);
+            
+            tags = matches
+                .Cast<Match>()
+                .Select(m => NormalizeTag(m.Groups[1].Value))
                 .Where(t => !string.IsNullOrEmpty(t))
                 .Distinct()
                 .Take(MAX_TAGS)
