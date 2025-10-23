@@ -37,6 +37,56 @@
     </a>
     {{ end }}
   </div>
+  
+  <!-- Related Videos -->
+  {{ if .Params.tags }}
+  {{ $currentPage := . }}
+  {{ $currentTags := .Params.tags }}
+  {{ $relatedVideos := slice }}
+  
+  {{ range where .Site.RegularPages "Section" "videos" }}
+    {{ if ne . $currentPage }}
+      {{ $sharedTags := intersect .Params.tags $currentTags }}
+      {{ if $sharedTags }}
+        {{ $relatedVideos = $relatedVideos | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  
+  {{ if $relatedVideos }}
+  <div class="related-videos">
+    <h3>Свързани видеа</h3>
+    <div class="related-grid">
+      {{ range first 4 $relatedVideos }}
+      <article class="video-card-small">
+        <a href="{{ .RelPermalink }}">
+          <div class="video-cover-small">
+            {{ if .Params.cover }}
+              {{ $cover := .Resources.Get .Params.cover }}
+              {{ if $cover }}
+                <img src="{{ $cover.Permalink }}" alt="{{ .Title }}" loading="lazy">
+              {{ else }}
+                <div class="video-cover-small" data-loading="true"></div>
+              {{ end }}
+            {{ else }}
+              <div class="video-cover-small" data-loading="true"></div>
+            {{ end }}
+            <div class="play-overlay-small">▶</div>
+          </div>
+          
+          <div class="video-info-small">
+            <h4 class="video-title-small">{{ .Title | truncate 60 }}</h4>
+            <div class="video-date-small">
+              {{ .Date.Format "2 Jan 2006" }}
+            </div>
+          </div>
+        </a>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+  {{ end }}
 </article>
 
 <!-- Navigation -->
