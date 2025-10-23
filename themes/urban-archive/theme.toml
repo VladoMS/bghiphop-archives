@@ -1,0 +1,15 @@
+name = "Urban Archive"
+description = "A modern, minimalist theme for video archives with urban/hip-hop aesthetic"
+homepage = "https://github.com/bghiphop-archive/urban-archive-theme"
+tags = ["video", "music", "archive", "modern", "responsive"]
+features = ["responsive", "video-focused", "dark-theme", "masonry-grid"]
+min_version = "0.100.0"
+
+[author]
+  name = "BG Hip Hop Archive"
+  homepage = "https://bghiphop-archive.net"
+
+[original]
+  name = "Urban Archive"
+  homepage = "https://bghiphop-archive.net"
+  repo = "https://github.com/bghiphop-archive/urban-archive-theme"

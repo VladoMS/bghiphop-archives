@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 0 * * *'  # Runs every day at 00:00 UTC
   push:
-    branches: ["master"]
+    branches: ["redesign", "main", "master"]
   workflow_dispatch:
 
 permissions:
@@ -26,26 +26,26 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.147.0'
+          hugo-version: '0.152.0'
           extended: true
 
       - name: Init submodules
         run: git submodule update --init --recursive 
 
-      # Generate a custom cache key
+      # Generate a custom cache key based on sync script and theme
       - name: Generate Cache Key
         id: cache_key
         run: |
             set -eo pipefail
-            SOURCE_HASH=$(
-                { find _source -type f -name "*.yml" -print0 || true; } \
+            SCRIPT_HASH=$(
+                { find scripts -type f -name "*.csx" -print0 || true; } \
                 | sort -z \
                 | xargs -0 -r sha256sum \
                 | sha256sum \
                 | cut -d ' ' -f1
             )
-            LAYOUT_HASH=$(
-                { find layouts -type f -name "*.html" -print0 || true; } \
+            THEME_HASH=$(
+                { find themes -type f \( -name "*.html" -o -name "*.css" \) -print0 || true; } \
                 | sort -z \
                 | xargs -0 -r sha256sum \
                 | sha256sum \
@@ -53,9 +53,9 @@ jobs:
             )
 
             EMPTY_HASH=$(printf "" | sha256sum | cut -d ' ' -f1)
-            SOURCE_HASH=${SOURCE_HASH:-$EMPTY_HASH}
-            LAYOUT_HASH=${LAYOUT_HASH:-$EMPTY_HASH}
-            CACHE_KEY="Linux-hugo-sourceyml-${SOURCE_HASH}-${LAYOUT_HASH}"
+            SCRIPT_HASH=${SCRIPT_HASH:-$EMPTY_HASH}
+            THEME_HASH=${THEME_HASH:-$EMPTY_HASH}
+            CACHE_KEY="Linux-hugo-youtube-sync-${SCRIPT_HASH}-${THEME_HASH}"
             echo "CACHE_KEY=${CACHE_KEY}" >> "$GITHUB_ENV"
 
 
@@ -69,12 +69,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-hugo-vp-images-
 
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'
+      
       - name: Install dotnet-script
-        uses: frankhaugen/frank-dotnet-script-install@1.0
-      - name: Run sync scripts
+        run: |
+          cd scripts
+          dotnet tool restore
+      
+      - name: Run YouTube playlist sync
         shell: bash
         run: |
-          chmod +x ./sync_data.csx && ./sync_data.csx || true
+          echo "Starting YouTube playlist sync..."
+          cd scripts
+          dotnet script sync_videos.csx -- --apply
+          echo "YouTube sync completed successfully"
 
 
       - name: Build

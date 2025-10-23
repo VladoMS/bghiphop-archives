@@ -1,0 +1,216 @@
+{{ define "main" }}
+<div class="page-title">
+  <h1>{{ .Title }}</h1>
+  <p class="text-muted">{{ .Content }}</p>
+</div>
+
+<div class="archives-container">
+  <!-- Year Filter -->
+  <div class="year-filter">
+    <label for="year-select" class="year-label">Година:</label>
+    <select id="year-select" class="year-select">
+      <option value="all">Всички години</option>
+    </select>
+    <div class="video-count">
+      <span id="video-count">Зареждане...</span>
+    </div>
+  </div>
+  
+  <!-- Videos Grid -->
+  <div id="videos-container" class="video-grid">
+    <!-- Videos will be populated here -->
+  </div>
+  
+  <div id="loading" class="loading">
+    <p>Зареждане на видеата...</p>
+  </div>
+  
+  <div id="no-videos" class="no-videos" style="display: none;">
+    <p>Няма видеа за избраната година.</p>
+  </div>
+</div>
+
+<style>
+.archives-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.year-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.year-label {
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.year-select {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--fg);
+  outline: none;
+  transition: all 0.2s;
+  min-width: 150px;
+}
+
+.year-select:focus {
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 3px rgba(0, 194, 255, 0.1);
+}
+
+.video-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-left: 1rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem 0;
+  color: var(--muted);
+}
+
+.no-videos {
+  text-align: center;
+  padding: 3rem 0;
+  color: var(--muted);
+}
+
+.no-videos p {
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .year-filter {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .video-count {
+    margin-left: 0;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const yearSelect = document.getElementById('year-select');
+  const videosContainer = document.getElementById('videos-container');
+  const videoCount = document.getElementById('video-count');
+  const loading = document.getElementById('loading');
+  const noVideos = document.getElementById('no-videos');
+  let allVideos = [];
+  let yearCounts = {};
+  
+  // Load videos data
+  fetch('/archives/index.json')
+    .then(response => response.json())
+    .then(data => {
+      allVideos = data;
+      processVideos();
+      populateYears();
+      displayVideos('all');
+      loading.style.display = 'none';
+    })
+    .catch(error => {
+      console.error('Error loading videos:', error);
+      loading.innerHTML = '<p>Грешка при зареждането на видеата.</p>';
+    });
+  
+  // Process videos and count by year
+  function processVideos() {
+    yearCounts = {};
+    
+    allVideos.forEach(video => {
+      const year = video.year;
+      if (!yearCounts[year]) {
+        yearCounts[year] = 0;
+      }
+      yearCounts[year]++;
+    });
+  }
+  
+  // Populate year dropdown
+  function populateYears() {
+    const years = Object.keys(yearCounts).sort((a, b) => b - a);
+    
+    years.forEach(year => {
+      const option = document.createElement('option');
+      option.value = year;
+      option.textContent = `${year} (${yearCounts[year]})`;
+      yearSelect.appendChild(option);
+    });
+  }
+  
+  // Display videos for selected year
+  function displayVideos(selectedYear) {
+    let filteredVideos = allVideos;
+    
+    if (selectedYear !== 'all') {
+      filteredVideos = allVideos.filter(video => video.year.toString() === selectedYear);
+    }
+    
+    // Update count
+    if (selectedYear === 'all') {
+      videoCount.textContent = `${allVideos.length} видеа общо`;
+    } else {
+      videoCount.textContent = `${filteredVideos.length} видеа за ${selectedYear}`;
+    }
+    
+    if (filteredVideos.length === 0) {
+      videosContainer.innerHTML = '';
+      noVideos.style.display = 'block';
+      return;
+    }
+    
+    noVideos.style.display = 'none';
+    
+    // Sort by date (newest first)
+    filteredVideos.sort((a, b) => new Date(b.rawDate) - new Date(a.rawDate));
+    
+    const html = filteredVideos.map(video => `
+      <article class="video-card">
+        <a href="${video.permalink}">
+          <div class="video-cover">
+            ${video.image ? 
+              `<img src="${video.image}" alt="${video.title}" loading="lazy">` : 
+              '<div class="video-cover" data-loading="true"></div>'
+            }
+            <div class="play-overlay">▶</div>
+          </div>
+          <div class="video-info">
+            <h2 class="video-title">${video.title}</h2>
+            <div class="video-date">${video.date}</div>
+            ${video.tags.length > 0 ? `
+              <div class="video-tags">
+                ${video.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('')}
+              </div>
+            ` : ''}
+          </div>
+        </a>
+      </article>
+    `).join('');
+    
+    videosContainer.innerHTML = html;
+  }
+  
+  // Handle year selection
+  yearSelect.addEventListener('change', function() {
+    displayVideos(this.value);
+  });
+});
+</script>
+{{ end }}

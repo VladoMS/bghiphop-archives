@@ -1,0 +1,63 @@
+{{ define "main" }}
+{{ $videos := where .Site.RegularPages "Section" "videos" }}
+{{ $paginator := .Paginate $videos }}
+
+<div class="video-grid">
+  {{ range $paginator.Pages }}
+  <article class="video-card">
+    <a href="{{ .RelPermalink }}">
+      <div class="video-cover">
+        {{ if .Params.cover }}
+          {{ $cover := .Resources.Get .Params.cover }}
+          {{ if $cover }}
+            <img src="{{ $cover.Permalink }}" alt="{{ .Title }}" loading="lazy">
+          {{ else }}
+            <div class="video-cover" data-loading="true"></div>
+          {{ end }}
+        {{ else }}
+          <div class="video-cover" data-loading="true"></div>
+        {{ end }}
+        <div class="play-overlay">
+          ▶
+        </div>
+      </div>
+      
+      <div class="video-info">
+        <h2 class="video-title">{{ .Title }}</h2>
+        <div class="video-date">
+          {{ .Date.Format "2 January 2006" }}
+        </div>
+        
+        {{ if .Params.tags }}
+        <div class="video-tags">
+          {{ range first 3 .Params.tags }}
+          <span class="tag">{{ . }}</span>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+    </a>
+  </article>
+  {{ end }}
+</div>
+
+{{ if gt $paginator.TotalPages 1 }}
+<nav class="pagination">
+  {{ if $paginator.HasPrev }}
+  <a href="{{ $paginator.Prev.URL }}" class="page-link">« Предишна</a>
+  {{ end }}
+  
+  {{ range $paginator.Pagers }}
+    {{ if eq . $paginator }}
+    <span class="page-link active">{{ .PageNumber }}</span>
+    {{ else }}
+    <a href="{{ .URL }}" class="page-link">{{ .PageNumber }}</a>
+    {{ end }}
+  {{ end }}
+  
+  {{ if $paginator.HasNext }}
+  <a href="{{ $paginator.Next.URL }}" class="page-link">Следваща »</a>
+  {{ end }}
+</nav>
+{{ end }}
+{{ end }}

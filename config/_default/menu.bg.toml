@@ -1,8 +1,9 @@
-# Configure main menu and social menu
 [[main]]
-identifier = "videos"
-name = "Видео"
-url = "/video"
-weight = 1
-[main.params]
-icon = "video"
+  name = "Архив"
+  url = "/archives/"
+  weight = 20
+
+[[main]]
+  name = "Търсене"
+  url = "/search/"
+  weight = 30

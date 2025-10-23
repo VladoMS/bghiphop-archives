@@ -1,0 +1,129 @@
+{{ define "main" }}
+<article class="video-single">
+  {{ if .Params.youtube_id }}
+  <div class="video-embed">
+    {{ .Content }}
+  </div>
+  {{ end }}
+  
+  <div class="video-meta">
+    <h1 class="video-title">{{ .Title }}</h1>
+    <div class="video-date">
+      Публикувано на {{ .Date.Format "2 January 2006" }}
+    </div>
+    
+    {{ if .Params.tags }}
+    <div class="video-tags">
+      {{ range .Params.tags }}
+      <span class="tag">{{ . }}</span>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  
+  <!-- Share buttons -->
+  <div class="share-buttons" style="text-align: center; margin: 2rem 0;">
+    {{ $title := .Title }}
+    {{ $url := .Permalink }}
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ $url }}" target="_blank" class="nav-link" style="display: inline-flex; margin: 0 0.5rem;">
+      Facebook
+    </a>
+    <a href="https://twitter.com/intent/tweet?text={{ $title }}&url={{ $url }}" target="_blank" class="nav-link" style="display: inline-flex; margin: 0 0.5rem;">
+      Twitter
+    </a>
+    {{ if .Params.youtube_id }}
+    <a href="https://www.youtube.com/watch?v={{ .Params.youtube_id }}" target="_blank" class="nav-link" style="display: inline-flex; margin: 0 0.5rem;">
+      YouTube
+    </a>
+    {{ end }}
+  </div>
+  
+  <!-- Related Videos -->
+  {{ if .Params.tags }}
+  {{ $currentPage := . }}
+  {{ $currentTags := .Params.tags }}
+  {{ $relatedVideos := slice }}
+  
+  {{ range where .Site.RegularPages "Section" "videos" }}
+    {{ if ne . $currentPage }}
+      {{ $sharedTags := intersect .Params.tags $currentTags }}
+      {{ if $sharedTags }}
+        {{ $relatedVideos = $relatedVideos | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  
+  {{ if $relatedVideos }}
+  <div class="related-videos">
+    <h3>Свързани видеа</h3>
+    <div class="related-grid">
+      {{ range first 4 $relatedVideos }}
+      <article class="video-card-small">
+        <a href="{{ .RelPermalink }}">
+          <div class="video-cover-small">
+            {{ if .Params.cover }}
+              {{ $cover := .Resources.Get .Params.cover }}
+              {{ if $cover }}
+                <img src="{{ $cover.Permalink }}" alt="{{ .Title }}" loading="lazy">
+              {{ else }}
+                <div class="video-cover-small" data-loading="true"></div>
+              {{ end }}
+            {{ else }}
+              <div class="video-cover-small" data-loading="true"></div>
+            {{ end }}
+            <div class="play-overlay-small">▶</div>
+          </div>
+          
+          <div class="video-info-small">
+            <h4 class="video-title-small">{{ .Title | truncate 60 }}</h4>
+            <div class="video-date-small">
+              {{ .Date.Format "2 Jan 2006" }}
+            </div>
+          </div>
+        </a>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+  {{ end }}
+</article>
+
+<!-- Navigation -->
+{{ $videos := where .Site.RegularPages "Section" "videos" }}
+{{ $currentIndex := -1 }}
+{{ range $index, $page := $videos }}
+  {{ if eq $page.Permalink $.Permalink }}
+    {{ $currentIndex = $index }}
+  {{ end }}
+{{ end }}
+
+{{ $prevVideo := "" }}
+{{ $nextVideo := "" }}
+{{ if gt $currentIndex 0 }}
+  {{ $prevVideo = index $videos (sub $currentIndex 1) }}
+{{ end }}
+{{ if lt $currentIndex (sub (len $videos) 1) }}
+  {{ $nextVideo = index $videos (add $currentIndex 1) }}
+{{ end }}
+
+{{ if or $prevVideo $nextVideo }}
+<nav class="video-nav">
+  {{ if $prevVideo }}
+  <a href="{{ $prevVideo.RelPermalink }}" class="nav-link">
+    ← {{ $prevVideo.Title | truncate 40 }}
+  </a>
+  {{ else }}
+  <span></span>
+  {{ end }}
+  
+  {{ if $nextVideo }}
+  <a href="{{ $nextVideo.RelPermalink }}" class="nav-link">
+    {{ $nextVideo.Title | truncate 40 }} →
+  </a>
+  {{ else }}
+  <span></span>
+  {{ end }}
+</nav>
+{{ end }}
+{{ end }}

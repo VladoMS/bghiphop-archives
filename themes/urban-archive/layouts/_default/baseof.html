@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" dir="{{ .Site.Language.LanguageDirection | default "ltr" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  {{ if .IsHome }}
+    <title>{{ .Site.Title }}</title>
+  {{ else }}
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+  {{ end }}
+  
+  <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="author" content="{{ .Site.Params.author | default .Site.Title }}">
+  
+  <!-- OpenGraph -->
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  
+  {{ if .Params.cover }}
+    {{ $cover := .Resources.Get .Params.cover }}
+    {{ if $cover }}
+      <meta property="og:image" content="{{ $cover.Permalink }}">
+      <meta property="og:image:width" content="{{ $cover.Width }}">
+      <meta property="og:image:height" content="{{ $cover.Height }}">
+    {{ end }}
+  {{ end }}
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.ico">
+  
+  <!-- CSS -->
+  {{ $styles := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
+  
+  <!-- RSS -->
+  {{ range .AlternativeOutputFormats -}}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ .Name }}">
+  {{ end -}}
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ .Permalink }}">
+  
+  <!-- JSON-LD structured data -->
+  {{ if .IsPage }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "{{ .Title }}",
+    "description": "{{ .Description | default .Summary }}",
+    "uploadDate": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+    "embedUrl": "https://www.youtube.com/embed/{{ .Params.youtube_id }}",
+    "contentUrl": "https://www.youtube.com/watch?v={{ .Params.youtube_id }}"
+  }
+  </script>
+  {{ end }}
+</head>
+
+<body>
+  {{ partial "header.html" . }}
+  
+  <main class="main">
+    <div class="container">
+      {{ block "main" . }}{{ end }}
+    </div>
+  </main>
+  
+  {{ partial "footer.html" . }}
+</body>
+</html>

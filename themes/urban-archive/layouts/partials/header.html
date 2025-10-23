@@ -1,0 +1,22 @@
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="{{ "/" | relURL }}">
+          <img src="{{ "/logo.svg" | relURL }}" alt="{{ .Site.Title }} Logo" class="logo-image">
+        </a>
+      </div>
+      
+      <nav class="nav">
+        <a href="{{ "/" | relURL }}" class="{{ if .IsHome }}active{{ end }}">
+          Начало
+        </a>
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL | relURL }}" class="{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}active{{ end }}">
+          {{ .Name }}
+        </a>
+        {{ end }}
+      </nav>
+    </div>
+  </div>
+</header>
